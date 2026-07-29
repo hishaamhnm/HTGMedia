@@ -4,99 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HTG Media — Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="C:\Users\hisha\OneDrive\Documents\Portfolio Images\favicon_io\favicon.ico">
+  <link rel="icon" href="images/favicon.ico">
   <meta name="description" content="Hishaam Mohamed — 16 year old creator" />
-  <style>
-    /* ====== Reset & base ====== */
-    :root{
-      --bg:#0b0b0c;
-      --card:#0f1113;
-      --muted:#9aa0a6;
-      --accent:#f7c948;
-      --white:#f6f7f9;
-      --glass: rgba(255,255,255,0.03);
-      --max-width:1200px;
-      --gap:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg,#060607 0%, #0b0b0c 100%);
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:30px;}
-    header{padding:28px 0;position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(11,11,12,0.6), rgba(11,11,12,0.35));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{
-      width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,#0f1720,#172028);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.6);font-size:18px
-    }
-    nav ul{display:flex;gap:14px;align-items:center;margin:0;padding:0;list-style:none}
-    nav li{font-size:14px;color:var(--muted)}
-    .cta{background:var(--accent);color:#0b0b0c;padding:8px 12px;border-radius:8px;font-weight:600}
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:40px 0}
-    .hero-left h1{font-size:34px;margin:0 0 12px 0}
-    .hero-left p{color:var(--muted);margin:0 0 18px 0}
-    .meta{display:flex;gap:12px;flex-wrap:wrap}
-    .meta .pill{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--muted);font-size:13px}
-    .hero-right{display:flex;flex-direction:column;gap:12px;align-items:center}
-    .hero-card{width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.03)}
-    .hero-card img{width:100%;height:260px;object-fit:cover;border-radius:8px}
 
-    /* Section styles */
-    section{padding:48px 0;border-top:1px solid rgba(255,255,255,0.02)}
-    h2.section-title{font-size:20px;margin:0 0 14px 0}
-    .section-intro{color:var(--muted);margin-bottom:18px}
-
-    /* Gallery grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-    .card{background:var(--card);border-radius:10px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.02)}
-    .card img{width:100%;height:210px;object-fit:cover;display:block;transition:transform .35s ease}
-    .card:hover img{transform:scale(1.03)}
-    .card .caption{padding:10px;color:var(--muted);font-size:13px}
-
-    /* Lightbox */
-    .lightbox{
-      position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(2,2,2,0.85);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px
-    }
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:calc(100% - 120px);max-height:calc(100% - 120px);object-fit:contain;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
-    .lightbox .meta{margin-top:12px;display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);width:100%;max-width:1100px}
-    .lb-close{position:absolute;right:28px;top:18px;color:var(--white);background:rgba(255,255,255,0.03);border-radius:8px;padding:8px 10px;cursor:pointer;font-weight:700}
-
-    /* About & Contact */
-    .about-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
-    .bio{color:var(--muted);line-height:1.6}
-    .contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    .contact-card p{margin:8px 0;color:var(--muted)}
-    .socials{display:flex;gap:10px;margin-top:10px}
-    .socials a{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600;font-size:13px}
-
-    footer{padding:28px 0;color:var(--muted);text-align:center;font-size:14px}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;gap:18px}
-      .hero-right{order:3}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .hero-card img{height:200px}
-      .about-grid{grid-template-columns:1fr}
-    }
-    @media (max-width:540px){
-      .grid{grid-template-columns:1fr}
-      nav ul{display:none}
-      header .nav{gap:10px}
-      .hero-left h1{font-size:28px}
-      .hero-card img{height:180px}
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -280,50 +190,5 @@
     </div>
   </div>
 
-  <script>
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Lightbox logic
-    const cards = document.querySelectorAll('.card');
-    const lightbox = document.getElementById('lightbox');
-    const lbImage = document.getElementById('lbImage');
-    const lbCaption = document.getElementById('lbCaption');
-    const lbClose = document.getElementById('lbClose');
-
-    cards.forEach(card=>{
-      const img = card.querySelector('img');
-      card.addEventListener('click', ()=>{
-        const full = img.getAttribute('data-full') || img.src;
-        lbImage.src = full;
-        lbCaption.textContent = card.getAttribute('data-caption') || img.alt || '';
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden','false');
-        // lock scroll
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    lbClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e)=>{
-      if(e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
-
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden','true');
-      lbImage.src = '';
-      document.body.style.overflow = '';
-    }
-
-    // Smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-      });
-    });
-  </script>
 </body>
 </html>
